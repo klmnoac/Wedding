@@ -60,12 +60,12 @@ setInterval(() => {
     now.getFullYear() === weddingDay.getFullYear() &&
     now.getMonth() === weddingDay.getMonth() &&
     now.getDate() === weddingDay.getDate() &&
-    now.getHours() === 12 &&
-    now.getMinutes() === 28
+    now.getHours() === 0 &&
+    now.getMinutes() === 36
   ) {
     sendWeddingNotification();
   }
-}, 60000); // Check every minute
+}, 1); // Check every minute
 
 function sendWeddingNotification() {
   if (Notification.permission === "granted") {
