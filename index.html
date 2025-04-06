@@ -43,13 +43,14 @@
         return;
       }
 
-      // Mobile browsers sometimes block notifications without HTTPS
+      // Check HTTPS (except for localhost)
       if (location.protocol !== "https:" && location.hostname !== "localhost") {
         alert("Notifications may not work without HTTPS.");
+        fallbackMessage();
         return;
       }
 
-      // Ask permission or show notification
+      // Ask permission if needed
       if (Notification.permission === "granted") {
         showNotification();
       } else if (Notification.permission !== "denied") {
@@ -57,19 +58,23 @@
           if (permission === "granted") {
             showNotification();
           } else {
-            alert("Notification permission denied.");
+            fallbackMessage();
           }
         });
       } else {
-        alert("Notification permission denied.");
+        fallbackMessage();
       }
     });
 
     function showNotification() {
       new Notification("Hello!", {
         body: "You clicked the button 🎉",
-        icon: "https://cdn-icons-png.flaticon.com/512/1828/1828817.png"
+        icon: "https://cdn-icons-png.flaticon.com/512/1828/1828817.png" // You can change this
       });
+    }
+
+    function fallbackMessage() {
+      alert("You clicked the button 🎉 (Notifications not supported here)");
     }
   </script>
 </body>
