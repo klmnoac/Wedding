@@ -2,93 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wedding Invitation</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent; /* Remove blue overlay */
-    }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom right, #a80057, #ff4e8b);
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-    }
-    h1 {
-      font-size: 2em;
-      margin-bottom: 10px;
-    }
-    h2 {
-      font-size: 1.2em;
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 1em;
-      margin: 10px 0;
-    }
-    .button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 25px;
-      background: white;
-      color: #a80057;
-      text-decoration: none;
-      border-radius: 25px;
-      font-weight: bold;
-      font-size: 1em;
-      transition: background 0.3s;
-    }
-    .button:hover {
-      background: #ffe1ed;
-    }
-    #countdown {
-      margin-top: 20px;
-      font-size: 1.5em;
-      font-weight: bold;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wedding Updates</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h1>Fathima Safa & Muhammed Anas</h1>
-  <h2>Are Getting Married!</h2>
+<div class="container">
+  <h1>💍 Wedding Countdown 💍</h1>
+  <div id="countdown">Loading...</div>
 
-  <div id="countdown">Loading countdown...</div>
+  <button id="notificationButton">
+    <i class="icon">🔔</i> Notifications
+  </button>
 
-  <p><strong>Date:</strong> 25th May 2025</p>
-  <p><strong>Time:</strong> 11:00 AM</p>
-  <p><strong>Venue:</strong> Our Residence</p>
+  <div class="rating">
+    <h2>Rate this page:</h2>
+    <div id="ratingStars">
+      <span onclick="rate(1)">⭐</span>
+      <span onclick="rate(2)">⭐</span>
+      <span onclick="rate(3)">⭐</span>
+      <span onclick="rate(4)">⭐</span>
+      <span onclick="rate(5)">⭐</span>
+    </div>
+    <p id="ratingMessage"></p>
+  </div>
+</div>
 
-  <a class="button" href="https://maps.app.goo.gl/hcDzwJ6StCXDLDcu8" target="_blank">View Location</a>
+<!-- Admin Panel (Hidden) -->
+<div id="adminPanel" style="display:none;">
+  <h2>🔒 Admin Panel</h2>
+  <label>Wedding Date:</label>
+  <input type="date" id="weddingDateInput">
+  <br>
+  <label>Notification Time:</label>
+  <input type="time" id="notificationTimeInput">
+  <br><br>
+  <button onclick="saveAdminSettings()">Save Settings</button>
+  <div id="allRatings"></div>
+</div>
 
-  <a class="button" href="tel:+91946206353" style="margin-top: 10px;">Call Us</a>
+<!-- Footer -->
+<div id="footer">© 2025 Wedding Event. Tap 5x here for Admin.</div>
 
-  <script>
-    // Countdown Script
-    const countDownDate = new Date("May 25, 2025 11:00:00").getTime();
-
-    const x = setInterval(function() {
-      const now = new Date().getTime();
-      const distance = countDownDate - now;
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById("countdown").innerHTML = 
-        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-
-      if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("countdown").innerHTML = "It's Wedding Time!";
-      }
-    }, 1000);
-  </script>
-
+<script src="script.js"></script>
 </body>
 </html>
