@@ -1,81 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Notification Example</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #f5f5f5;
-    }
-
-    button {
-      padding: 15px 30px;
-      font-size: 18px;
-      border: none;
-      border-radius: 8px;
-      background-color: #000;
-      color: white;
-      cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      transition: background-color 0.3s;
-    }
-
-    button:hover {
-      background-color: #45a049;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Quick Notification Demo</title>
 </head>
 <body>
-  <button id="notifyBtn">Show Notification</button>
+    <button onclick="notify()">Send Notification</button>
 
-  <script>
-    const notifyBtn = document.getElementById('notifyBtn');
-
-    notifyBtn.addEventListener('click', () => {
-      // Check if Notification is supported
-      if (!("Notification" in window)) {
-        alert("This browser does not support notifications.");
-        return;
-      }
-
-      // Check HTTPS (except for localhost)
-      if (location.protocol !== "https:" && location.hostname !== "localhost") {
-        alert("Notifications may not work without HTTPS.");
-        fallbackMessage();
-        return;
-      }
-
-      // Ask permission if needed
-      if (Notification.permission === "granted") {
-        showNotification();
-      } else if (Notification.permission !== "denied") {
-        Notification.requestPermission().then(permission => {
-          if (permission === "granted") {
-            showNotification();
-          } else {
-            fallbackMessage();
-          }
-        });
-      } else {
-        fallbackMessage();
-      }
-    });
-
-    function showNotification() {
-      new Notification("Hello!", {
-        body: "You clicked the button 🎉",
-        icon: "https://cdn-icons-png.flaticon.com/512/1828/1828817.png" // You can change this
-      });
-    }
-
-    function fallbackMessage() {
-      alert("You clicked the button 🎉 (Notifications not supported here)");
-    }
-  </script>
+    <script>
+        function notify() {
+            Notification.requestPermission().then(perm => {
+                if (perm === "granted") {
+                    new Notification("HankTheTank", {
+                        body: "Hello from HankTheTank",
+                        icon: "icon.jpg"
+                    });
+                }
+            });
+        }
+    </script>
 </body>
 </html>
