@@ -1,50 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Wedding Updates</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fathima & Muhammed - Wedding Updates</title>
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<div class="container">
-  <h1>💍 Wedding Countdown 💍</h1>
-  <div id="countdown">Loading...</div>
+  <!-- SPLASH SCREEN -->
+  <div id="splash-screen" class="splash-screen">
+    <img src="logo.svg" alt="Wedding Logo" class="splash-logo">
+  </div>
 
-  <button id="notificationButton">
-    <i class="icon">🔔</i> Notifications
-  </button>
+  <!-- MAIN CONTENT -->
+  <header class="header">
+    <p class="invitation-text">Your Invited Wedding of</p>
+    <h2 class="couple-name">Fathima Safa &amp; Muhammed Anas</h2>
+    <img src="ring.svg" alt="Wedding Ring" class="ring-image">
+    <div class="datebg">
+    <p class="date-info">25 May 2025 | 11:00 AM</p>
+    </header></div>
+  </header>
 
-  <div class="rating">
-    <h2>Rate this page:</h2>
-    <div id="ratingStars">
-      <span onclick="rate(1)">⭐</span>
-      <span onclick="rate(2)">⭐</span>
-      <span onclick="rate(3)">⭐</span>
-      <span onclick="rate(4)">⭐</span>
-      <span onclick="rate(5)">⭐</span>
-    </div>
-    <p id="ratingMessage"></p>
+  <main class="main-content">
+    <!-- COUNTDOWN TIMER -->
+    <section class="countdown-section">
+      <h3>Countdown to the Big Day</h3>
+      <div id="countdown" class="countdown-timer">
+        <div class="time-box">
+          <span id="days">00</span>
+          <p>Days</p>
+        </div>
+        <div class="time-box">
+          <span id="hours">00</span>
+          <p>Hours</p>
+        </div>
+        <div class="time-box">
+          <span id="minutes">00</span>
+          <p>Minutes</p>
+        </div>
+        <div class="time-box">
+          <span id="seconds">00</span>
+          <p>Seconds</p>
+        </div>
+      </div>
+
+
+
+<!-- Popup Modal -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <h2>🎉 You're Invited!</h2>
+    <p>Join us in celebrating our special day! 💍</p>
+    <button onclick="closePopup()">Let's Go!</button>
   </div>
 </div>
 
-<!-- Admin Panel (Hidden) -->
-<div id="adminPanel" style="display:none;">
-  <h2>🔒 Admin Panel</h2>
-  <label>Wedding Date:</label>
-  <input type="date" id="weddingDateInput">
-  <br>
-  <label>Notification Time:</label>
-  <input type="time" id="notificationTimeInput">
-  <br><br>
-  <button onclick="saveAdminSettings()">Save Settings</button>
-  <div id="allRatings"></div>
-</div>
 
-<!-- Footer -->
-<div id="footer">© 2025 Wedding Event. Tap 5x here for Admin.</div>
 
-<script src="script.js"></script>
+
+    
+    <!-- CALL BUTTON -->
+<!-- CALL AND LOCATION BUTTONS TOGETHER -->
+<section class="call-location-wrapper">
+  <a class="call-button" href="tel:+919946206353">Call Us</a>
+  <a class="location-button" href="https://maps.google.com/?q=Your+Wedding+Location" target="_blank" rel="noopener noreferrer">Location</a>
+</section>
+</section>
+<section class="fun-terms">
+  <h2>Terms & Conditions</h2>
+  <ul>
+    <li> ബിരിയാണിക്ക് പപ്പടം ചോദിക്കരുത് 😁</li>
+    <li> ബിരിയാണിക്ക് പപ്പടം ചോദിക്കരുത് </li>
+  </ul>
+</section>
+  </main>
+  <footer>
+    Made with ❤️ for Safa & Anas
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="script.js"></script>
 </body>
 </html>
