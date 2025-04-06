@@ -61,7 +61,7 @@ setInterval(() => {
     now.getMonth() === weddingDay.getMonth() &&
     now.getDate() === weddingDay.getDate() &&
     now.getHours() === 12 &&
-    now.getMinutes() === 24
+    now.getMinutes() === 25
   ) {
     sendWeddingNotification();
   }
