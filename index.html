@@ -1,88 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fathima & Muhammed - Wedding Updates</title>
-  
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Notification Example</title>
 </head>
 <body>
+  <button id="notifyBtn">Show Notification</button>
 
-  <!-- SPLASH SCREEN -->
-  <div id="splash-screen" class="splash-screen">
-    <img src="logo.svg" alt="Wedding Logo" class="splash-logo">
-  </div>
+  <script>
+    const notifyBtn = document.getElementById('notifyBtn');
 
-  <!-- MAIN CONTENT -->
-  <header class="header">
-    <p class="invitation-text">Your Invited Wedding of</p>
-    <h2 class="couple-name">Fathima Safa &amp; Muhammed Anas</h2>
-    <img src="ring.svg" alt="Wedding Ring" class="ring-image">
-    <div class="datebg">
-    <p class="date-info">25 May 2025 | 11:00 AM</p>
-    </header></div>
-  </header>
+    notifyBtn.addEventListener('click', () => {
+      // Check if the browser supports notifications
+      if (!("Notification" in window)) {
+        alert("This browser does not support desktop notifications.");
+        return;
+      }
 
-  <main class="main-content">
-    <!-- COUNTDOWN TIMER -->
-    <section class="countdown-section">
-      <h3>Countdown to the Big Day</h3>
-      <div id="countdown" class="countdown-timer">
-        <div class="time-box">
-          <span id="days">00</span>
-          <p>Days</p>
-        </div>
-        <div class="time-box">
-          <span id="hours">00</span>
-          <p>Hours</p>
-        </div>
-        <div class="time-box">
-          <span id="minutes">00</span>
-          <p>Minutes</p>
-        </div>
-        <div class="time-box">
-          <span id="seconds">00</span>
-          <p>Seconds</p>
-        </div>
-      </div>
+      // Ask for permission if not already granted
+      if (Notification.permission === "granted") {
+        showNotification();
+      } else if (Notification.permission !== "denied") {
+        Notification.requestPermission().then(permission => {
+          if (permission === "granted") {
+            showNotification();
+          }
+        });
+      }
+    });
 
-
-
-<!-- Popup Modal -->
-<div id="popup" class="popup">
-  <div class="popup-content">
-    <h2>🎉 You're Invited!</h2>
-    <p>Join us in celebrating our special day! 💍</p>
-    <button onclick="closePopup()">Let's Go!</button>
-  </div>
-</div>
-
-
-
-
-    
-    <!-- CALL BUTTON -->
-<!-- CALL AND LOCATION BUTTONS TOGETHER -->
-<section class="call-location-wrapper">
-  <a class="call-button" href="tel:+919946206353">Call Us</a>
-  <a class="location-button" href="https://maps.google.com/?q=Your+Wedding+Location" target="_blank" rel="noopener noreferrer">Location</a>
-</section>
-</section>
-<section class="fun-terms">
-  <h2>Terms & Conditions</h2>
-  <ul>
-    <li> ബിരിയാണിക്ക് പപ്പടം ചോദിക്കരുത് 😁</li>
-    <li> ബിരിയാണിക്ക് പപ്പടം ചോദിക്കരുത് </li>
-  </ul>
-</section>
-  </main>
-  <footer>
-    Made with ❤️ for Safa & Anas
-  </footer>
-  
-  <!-- Scripts -->
-  <script src="script.js"></script>
+    function showNotification() {
+      new Notification("Hello!", {
+        body: "You clicked the button 🎉",
+        icon: "https://cdn-icons-png.flaticon.com/512/1828/1828817.png" // optional icon
+      });
+    }
+  </script>
 </body>
 </html>
