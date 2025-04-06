@@ -1,45 +1,280 @@
+/* Basic resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background: #000;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #fbeff9 0%, #ffe5f1 100%);
+  min-height: 100vh;
   color: #333;
+  display: flex;
+  flex-direction: column;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* SPLASH SCREEN */
+.splash-screen {
+  position: fixed;
+  top: 0; 
+  left: 0; 
+  width: 100vw; 
+  height: 100vh;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.splash-logo {
+  max-width: 40%;
+  height: auto;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* HEADER */
+.header {
   text-align: center;
-  padding: 20px;
+  padding: 2rem 1rem;
+  background: linear-gradient(90deg, rgba(209,0,108,0.8), rgba(233,30,99,0.8));
+  color: #fff;
+
 }
 
-.container {
-  margin-top: 50px;
+.invitation-text {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
 }
 
-#notificationButton {
-  background-color: #ff6b81;
-  color: white;
-  padding: 10px 20px;
-  margin: 20px;
+.couple-name {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.ring-image {
+  width: 140px;
+  height: auto;
+  margin-bottom: -40px;
+  margin-top: -60px;
+}
+
+/* DATE SECTION with improved GLASSMORPHISM */
+.datebg {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 2rem 1rem;
+  text-align: center;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.date-info {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+
+/* MAIN CONTENT */
+.main-content {
+  flex: 1;
+  padding: 1rem;
+}
+
+/* Countdown */
+.countdown-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.time-box {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  width: 70px;
+  padding: 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.time-box span {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #d1006c;
+}
+
+.time-box p {
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  text-align: center;
+  color: #555;
+}
+
+/* Buttons */
+.call-location-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.call-button,
+.location-button {
+  flex: 1 1 auto;
+  min-width: 140px;
+  padding: 0.8rem 1rem;
+  text-align: center;
+  background: linear-gradient(90deg, #d1006c, #e91e63);
+  color: #fff;
   border: none;
-  border-radius: 30px;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.rating span {
-  font-size: 30px;
-  cursor: pointer;
-}
-
-.rating span.active {
-  color: gold;
-}
-
-#footer {
-  margin-top: 50px;
-  font-size: 14px;
-  color: gray;
-  padding: 10px;
-}
-
-#adminPanel {
-  background: #f0f0f0;
-  padding: 20px;
-  margin-top: 20px;
   border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.call-button:hover,
+.location-button:hover {
+  background: linear-gradient(90deg, #b1005c, #c2185b);
+  transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #888;
+  padding: 1rem;
+}
+
+/* Responsive */
+@media (min-width: 600px) {
+  .countdown-timer {
+    gap: 2rem;
+  }
+  .time-box {
+    width: 80px;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.fun-terms {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  margin: 2rem 1rem;
+  padding: 2rem;
+  text-align: left;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.fun-terms h2 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #d1006c;
+}
+
+.fun-terms ul {
+  list-style-type: none;
+}
+
+.fun-terms li {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  color: #444;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.fun-terms li::before {
+  content: "⭕";
+  position: absolute;
+  left: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Popup Modal Styles */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.popup-content {
+  background: rgba(255,255,255,0.9);
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0px 8px 24px rgba(0,0,0,0.2);
+}
+
+.popup-content h2 {
+  margin-bottom: 1rem;
+  color: #d1006c;
+}
+
+.popup-content button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #d1006c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.popup.show {
+  opacity: 1;
+  pointer-events: auto;
 }
